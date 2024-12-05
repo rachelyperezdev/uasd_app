@@ -31,7 +31,7 @@ AppBar buildDarkAppBar({required String title}) {
     iconTheme: IconThemeData(color: AppConstants.tertiaryTxtColor),
     title: Text(
       title,
-      style: TextStyle(color: AppConstants.primaryColor),
+      style: TextStyle(color: AppConstants.tertiaryTxtColor),
     ),
   );
 }
