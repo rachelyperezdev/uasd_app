@@ -1,19 +1,19 @@
 // Pantalla de 'Sobre los Desarrolladores'
 import 'package:flutter/material.dart';
 import 'package:uasd_app/app/app_constants.dart';
-import 'package:uasd_app/core/widgets/customized_appBar.dart';
 import 'package:uasd_app/features/about_developers/presentation/widgets/developer_card_widget.dart';
 import 'package:uasd_app/features/home/presentation/widgets/home_drawer.dart';
 import 'package:vertical_card_pager/vertical_card_pager.dart';
-
-// Pantalla de 'Sobre los Desarrolladores'
 class AboutDevelopersScreen extends StatefulWidget {
   AboutDevelopersScreen({super.key});
+
+  @override
+  AboutDevelopersState createState() => AboutDevelopersState();
 }
 
 class AboutDevelopersState extends State<AboutDevelopersScreen> {
-@override
-Widget build(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
     final titles = AppConstants.developers.map((dev) => "").toList();
     final images = AppConstants.developers.map((dev) {
       return DeveloperCard(
@@ -23,37 +23,36 @@ Widget build(BuildContext context) {
       );
     }).toList();
 
-return Scaffold(
-        appBar: AppBar(),
-        // drawer:
-        body: Center());
-      appBar: buildDarkAppBar(title: ""),
+    return Scaffold(
+      appBar: _buildAppBar(title: ""),
       drawer: HomeDrawer(),
       body: SafeArea(
         child: Container(
           decoration: _buildGradientBackground(),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                _buildHeaderText(),
-                _buildDeveloperCards(titles, images),
-                _buildDescriptionContainer(
-                    description:
-                        '<Alexander Hilario/>\nEs un desarrollador con interés en lenguajes como Python, en especial, en el desarrollo de scripts automatizados.'),
-                _buildDescriptionContainer(
-                    description:
-                        '<Héctor Medina/>\nEs un desarrollador web con interés en las tecnologías de JavaScript, enfocado en crear aplicaciones intuitivas, accesibles y fáciles de usar para mejorar la experiencia del usuario.'),
-                _buildDescriptionContainer(
-                    description:
-                        '<Rachely Pérez/>\nEs una desarrolladora interesada en ASP.NET, React y Flutter, con habilidades en el desarrollo de aplicaciones modernas, tanto web como móviles, centradas en la experiencia del usuario y el código limpio.'),
-              ],
-            ),
+          child: Column(
+            children: [
+              _buildHeaderText(),
+              _buildDeveloperCards(titles, images),
+              _buildDescriptionContainer(),
+            ],
           ),
         ),
       ),
+    );
   }
 
-  // Fondo con gradiente
+  AppBar _buildAppBar({required String title}) {
+    return AppBar(
+      backgroundColor: Color.fromARGB(255, 39, 118, 255),
+      elevation: 0,
+      iconTheme: IconThemeData(color: AppConstants.tertiaryTxtColor),
+      title: Text(
+        title,
+        style: TextStyle(color: AppConstants.primaryColor),
+      ),
+    );
+  }
+
   BoxDecoration _buildGradientBackground() {
     return BoxDecoration(
       gradient: LinearGradient(
@@ -67,7 +66,6 @@ return Scaffold(
     );
   }
 
-  // Encabezado
   Widget _buildHeaderText() {
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -89,21 +87,21 @@ return Scaffold(
     );
   }
 
-  // Card Pager con información de los desarrolladores
   Widget _buildDeveloperCards(List<String> titles, List<Widget> images) {
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.45,
-      child: VerticalCardPager(
-        initialPage: 1,
-        titles: titles,
-        images: images,
-        physics: ClampingScrollPhysics(),
+    return Expanded(
+      child: Container(
+        height: MediaQuery.of(context).size.height * 0.75,
+        child: VerticalCardPager(
+          initialPage: 1,
+          titles: titles,
+          images: images,
+          physics: ClampingScrollPhysics(),
+        ),
       ),
     );
   }
 
-  // Contenedor de descripción
-  Widget _buildDescriptionContainer({required String description}) {
+  Widget _buildDescriptionContainer() {
     return Padding(
       padding: const EdgeInsets.only(bottom: 24, left: 16, right: 16),
       child: Container(
@@ -116,10 +114,10 @@ return Scaffold(
           children: [
             Expanded(
               child: Text(
-                description,
+                "Este es el equipo de desarrolladores encargados de crear esta aplicación para los estudiantes de la Universidad Autónoma de Santo Domingo.",
                 style: TextStyle(
                   fontSize: 16,
-                  color: const Color.fromARGB(255, 215, 233, 253),
+                  color: AppConstants.tertiaryTxtColor,
                   fontStyle: FontStyle.italic,
                 ),
                 textAlign: TextAlign.left,
@@ -129,5 +127,5 @@ return Scaffold(
         ),
       ),
     );
-}
+  }
 }

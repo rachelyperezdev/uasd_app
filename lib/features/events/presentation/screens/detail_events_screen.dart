@@ -1,40 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:uasd_app/app/app_constants.dart';
-import 'package:uasd_app/core/widgets/customized_appBar.dart';
-import 'package:uasd_app/core/widgets/customized_card.dart';
 import 'package:uasd_app/core/widgets/map_widget.dart';
-import 'package:uasd_app/core/widgets/text_utils.dart';
 import 'package:uasd_app/data/models/event_model.dart';
 
 class DetailEventsScreen extends StatefulWidget {
-  DetailEventsScreen({super.key});
   final EventModel event;
+
   DetailEventsScreen({super.key, required this.event});
+
+  @override
+  DetailEventsState createState() => DetailEventsState();
 }
 
-@override
-DetailEventsState createState() => DetailEventsState();
 class DetailEventsState extends State<DetailEventsScreen> {
-@override
-Widget build(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final screenHeight = size.height;
 
-return Scaffold(
-      // backgroundColor: ,
-      // appBar: ,
-      // drawer: ,
-      body: Center(),
+    return Scaffold(
       backgroundColor: Colors.white,
       extendBodyBehindAppBar: true,
-      appBar: buildTransparentAppBar(iconColor: AppConstants.primaryColor),
+      appBar: _buildAppBar(),
       body: Stack(
         children: [
           _buildMap(screenHeight),
           _buildEventInfoContainer(screenHeight),
         ],
       ),
+    );
+  }
+
+  AppBar _buildAppBar() {
+    return AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      iconTheme: IconThemeData(
+          color: AppConstants.primaryTxtColor, size: 30.0, weight: 100),
     );
   }
 
@@ -66,17 +69,27 @@ return Scaffold(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              buildTitle(
-                  title: widget.event.title, color: AppConstants.primaryColor),
+              _buildEventTitle(),
               SizedBox(height: 12),
               _buildEventLocation(),
               SizedBox(height: 12),
               _buildEventDate(),
               SizedBox(height: 12),
-              buildDescription(description: widget.event.description),
+              _buildEventDescription(),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildEventTitle() {
+    return Text(
+      widget.event.title,
+      style: TextStyle(
+        color: AppConstants.primaryColor,
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
       ),
     );
   }
@@ -120,6 +133,16 @@ return Scaffold(
           ),
         )
       ],
-);
-}
+    );
+  }
+
+  Widget _buildEventDescription() {
+    return Text(
+      widget.event.description,
+      style: TextStyle(
+        color: AppConstants.bottomGradientColor,
+        fontSize: 16,
+      ),
+    );
+  }
 }
