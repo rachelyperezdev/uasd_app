@@ -1,10 +1,10 @@
-// DIALOGOS
-
-// Cancelar
 import 'package:flutter/material.dart';
 import 'package:uasd_app/app/app_constants.dart';
 import 'package:uasd_app/data/models/course_model.dart';
 
+// DIALOGOS
+
+// Cancelar
 class CancellationDialog extends StatelessWidget {
   final VoidCallback onConfirm;
   final String title;

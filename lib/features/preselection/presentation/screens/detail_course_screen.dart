@@ -147,3 +147,4 @@ class DetailCourseState extends State<DetailCourseScreen> {
     );
   }
 }
+

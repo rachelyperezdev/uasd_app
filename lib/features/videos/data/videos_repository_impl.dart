@@ -11,6 +11,7 @@ class VideosRepositoryImpl extends VideosRepository {
 
   VideosRepositoryImpl({required this.apiClient});
 
+  // Busca los videos
   @override
   Future<Either<Failure, List<VideoModel>>> fetchVideos() async {
     try {
@@ -27,14 +28,18 @@ class VideosRepositoryImpl extends VideosRepository {
 
       return Right(videos);
     } catch (error) {
-      if (error is NetworkException) {
-        return Left(
-            NetworkFailure('Network issue, please check your connection.'));
-      } else if (error is ServerException) {
-        return Left(ServerFailure('Failed to fetch news, try again.'));
-      } else {
-        return Left(CustomFailure('An unexpected error occurred.'));
-      }
+      return _handleError(error);
+    }
+  }
+
+  Either<Failure, List<VideoModel>> _handleError(dynamic error) {
+    if (error is NetworkException) {
+      return Left(
+          NetworkFailure('Network issue, please check your connection.'));
+    } else if (error is ServerException) {
+      return Left(ServerFailure('Failed to fetch assignments, try again.'));
+    } else {
+      return Left(CustomFailure('An unexpected error occurred.'));
     }
   }
 }

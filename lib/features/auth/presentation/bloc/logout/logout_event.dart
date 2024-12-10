@@ -1,6 +1,6 @@
-// Eventos de cierre de sesión
 import 'package:equatable/equatable.dart';
 
+// Eventos de cierre de sesión
 abstract class LogoutEvent extends Equatable {
   @override
   List<Object?> get props => [];

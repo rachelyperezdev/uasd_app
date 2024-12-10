@@ -1,7 +1,7 @@
-// App bar transparente
 import 'package:flutter/material.dart';
 import 'package:uasd_app/app/app_constants.dart';
 
+// App bar transparente
 AppBar buildTransparentAppBar({Color? iconColor}) {
   return AppBar(
     backgroundColor: Colors.transparent,

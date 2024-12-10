@@ -8,3 +8,4 @@ class DeleteApplicationEvent extends Equatable {
   @override
   List<Object?> get props => [applicationId];
 }
+

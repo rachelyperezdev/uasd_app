@@ -26,3 +26,4 @@ class ResetPasswordFailure extends ResetPasswordState {
   @override
   List<Object?> get props => [error];
 }
+

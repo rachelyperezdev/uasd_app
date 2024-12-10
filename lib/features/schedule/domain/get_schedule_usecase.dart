@@ -12,3 +12,4 @@ class GetScheduleUsecase {
     return await scheduleRepository.fetchSchedule();
   }
 }
+

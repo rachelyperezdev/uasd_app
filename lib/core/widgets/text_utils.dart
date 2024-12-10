@@ -1,7 +1,7 @@
-// Elementos de texto del Landing Page
 import 'package:flutter/material.dart';
 import 'package:uasd_app/app/app_constants.dart';
 
+// Elementos de texto del Landing Page
 Widget buildTitle(
     {required String title,
     Color color = AppConstants.primaryTxtColor,

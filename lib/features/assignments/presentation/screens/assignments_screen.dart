@@ -18,8 +18,10 @@ import 'package:uasd_app/features/home/presentation/widgets/home_drawer.dart';
 import 'package:uasd_app/injection_container.dart';
 
 class AssignmentsScreen extends StatefulWidget {
-AssignmentsScreen({super.key});
-AssignmentsScreenState createState() => AssignmentsScreenState();
+  AssignmentsScreen({super.key});
+
+  @override
+  AssignmentsScreenState createState() => AssignmentsScreenState();
 }
 
 class AssignmentsScreenState extends State<AssignmentsScreen>
@@ -27,17 +29,17 @@ class AssignmentsScreenState extends State<AssignmentsScreen>
   late CarouselSliderController innerCarouselController;
   int innerCurrentPage = 0;
 
-@override
-void initState() {
+  @override
+  void initState() {
     innerCarouselController = CarouselSliderController();
-super.initState();
-}
+    super.initState();
+  }
 
-@override
-Widget build(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-return Scaffold(
+    return Scaffold(
       backgroundColor: AppConstants.primaryBgColor,
       extendBodyBehindAppBar: true,
       appBar: buildTransparentAppBar(iconColor: AppConstants.primaryColor),
@@ -216,8 +218,8 @@ return Scaffold(
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 colors: [
-                                  const Color.fromARGB(255, 237, 245, 255),
-                                  const Color.fromARGB(255, 237, 245, 255),
+                                  const Color.fromARGB(255, 250, 251, 252),
+                                  const Color.fromARGB(255, 245, 248, 252),
                                 ],
                               ),
                               borderRadius: BorderRadius.circular(10.0),
@@ -403,6 +405,7 @@ return Scaffold(
           ),
         ),
       ),
-);
+    );
+  }
 }
-}
+

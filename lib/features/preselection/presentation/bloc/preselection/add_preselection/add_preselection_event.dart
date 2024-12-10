@@ -9,3 +9,4 @@ class AddPreselectionEvent extends Equatable {
   @override
   List<Object?> get props => [addPreselection];
 }
+

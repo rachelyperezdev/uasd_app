@@ -1,6 +1,6 @@
-// Excepción de red
 import 'package:uasd_app/core/errors/base_exception.dart';
 
+// Excepción de red
 class NetworkException extends BaseException {
   NetworkException(message) : super(message);
 
@@ -9,3 +9,4 @@ class NetworkException extends BaseException {
     return 'NetworkException: $message';
   }
 }
+

@@ -8,3 +8,4 @@ class DeletePreselectionEvent extends Equatable {
   @override
   List<Object?> get props => [courseCode];
 }
+

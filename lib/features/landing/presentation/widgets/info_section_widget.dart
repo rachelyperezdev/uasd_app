@@ -5,7 +5,6 @@ import 'package:uasd_app/core/widgets/text_utils.dart';
 import 'package:uasd_app/features/landing/presentation/widgets/image_viewer.dart';
 import 'package:uasd_app/core/widgets/video_player_widget.dart';
 
-
 class InfoSectionWidget extends StatefulWidget {
   const InfoSectionWidget({super.key});
 

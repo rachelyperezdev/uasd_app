@@ -1,9 +1,9 @@
-// ELEMENTOS DE UN CARD
-
-// Decoración
 import 'package:flutter/material.dart';
 import 'package:uasd_app/app/app_constants.dart';
 
+// ELEMENTOS DE UN CARD
+
+// Decoración
 BoxDecoration buildCardDecoration([Color? statusColor]) {
   return BoxDecoration(
     borderRadius: BorderRadius.circular(15.0),
@@ -114,3 +114,4 @@ Widget buildTag({required String message, Color? color}) {
     ],
   );
 }
+

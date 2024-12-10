@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:uasd_app/app/app_constants.dart';
+import 'package:uasd_app/core/widgets/customized_appBar.dart';
+import 'package:uasd_app/core/widgets/customized_card.dart';
 import 'package:uasd_app/core/widgets/map_widget.dart';
+import 'package:uasd_app/core/widgets/text_utils.dart';
 import 'package:uasd_app/data/models/event_model.dart';
 
 class DetailEventsScreen extends StatefulWidget {
@@ -22,22 +25,13 @@ class DetailEventsState extends State<DetailEventsScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       extendBodyBehindAppBar: true,
-      appBar: _buildAppBar(),
+      appBar: buildTransparentAppBar(iconColor: AppConstants.primaryColor),
       body: Stack(
         children: [
           _buildMap(screenHeight),
           _buildEventInfoContainer(screenHeight),
         ],
       ),
-    );
-  }
-
-  AppBar _buildAppBar() {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      iconTheme: IconThemeData(
-          color: AppConstants.primaryTxtColor, size: 30.0, weight: 100),
     );
   }
 
@@ -69,27 +63,17 @@ class DetailEventsState extends State<DetailEventsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildEventTitle(),
+              buildTitle(
+                  title: widget.event.title, color: AppConstants.primaryColor),
               SizedBox(height: 12),
               _buildEventLocation(),
               SizedBox(height: 12),
               _buildEventDate(),
               SizedBox(height: 12),
-              _buildEventDescription(),
+              buildDescription(description: widget.event.description),
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildEventTitle() {
-    return Text(
-      widget.event.title,
-      style: TextStyle(
-        color: AppConstants.primaryColor,
-        fontSize: 24,
-        fontWeight: FontWeight.bold,
       ),
     );
   }
@@ -133,16 +117,6 @@ class DetailEventsState extends State<DetailEventsScreen> {
           ),
         )
       ],
-    );
-  }
-
-  Widget _buildEventDescription() {
-    return Text(
-      widget.event.description,
-      style: TextStyle(
-        color: AppConstants.bottomGradientColor,
-        fontSize: 16,
-      ),
     );
   }
 }

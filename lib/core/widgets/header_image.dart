@@ -1,7 +1,7 @@
-// Imagen como Header
 import 'package:flutter/material.dart';
 import 'package:uasd_app/app/app_constants.dart';
 
+// Imagen como Header
 class HeaderImage extends StatelessWidget {
   final String imageUrl;
   final double height;

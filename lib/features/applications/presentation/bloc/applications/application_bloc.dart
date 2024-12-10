@@ -31,3 +31,4 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
     });
   }
 }
+

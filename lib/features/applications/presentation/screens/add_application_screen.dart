@@ -265,4 +265,3 @@ class AddApplicationScreenState extends State<AddApplicationScreen> {
     }
   }
 }
-

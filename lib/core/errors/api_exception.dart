@@ -1,6 +1,6 @@
-// excepción de la API
 import 'package:uasd_app/core/errors/base_exception.dart';
 
+// excepción de la API
 class ApiException extends BaseException {
   ApiException(String message, {int? statusCode})
       : super(message, statusCode: statusCode);

@@ -3,7 +3,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:uasd_app/features/landing/presentation/widgets/image_viewer.dart';
 
-
 // Slider
 class InnerBannerSlider extends StatelessWidget {
   final CarouselSliderController carouselController;

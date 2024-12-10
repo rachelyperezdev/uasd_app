@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+
 // Fallo Base
 
 abstract class Failure extends Equatable {

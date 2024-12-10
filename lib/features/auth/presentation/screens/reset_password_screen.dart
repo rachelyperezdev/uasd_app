@@ -21,7 +21,7 @@ class ResetPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppConstants.primaryColor,
-      appBar: buildDarkAppBar(title: ""),
+      appBar: buildDarkAppBar(title: "Restablecer Contraseña"),
       resizeToAvoidBottomInset: true,
       body: _buildBlocListener(context),
     );
@@ -131,3 +131,4 @@ class ResetPasswordScreen extends StatelessWidget {
     );
   }
 }
+

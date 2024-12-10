@@ -1,7 +1,7 @@
-// Contenedor con Gradiente
 import 'package:flutter/material.dart';
 import 'package:uasd_app/app/app_constants.dart';
 
+// Contenedor con Gradiente
 Widget buildGradientContainer({
   required String title1,
   required String title2,

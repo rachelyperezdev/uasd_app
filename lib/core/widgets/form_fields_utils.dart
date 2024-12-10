@@ -1,9 +1,9 @@
-// Campos de Formularios
-
-// Campo de texto
 import 'package:flutter/material.dart';
 import 'package:uasd_app/app/app_constants.dart';
 
+// Campos de Formularios
+
+// Campo de texto
 Widget buildTxtFormField({
   required TextEditingController controller,
   required String labelText,

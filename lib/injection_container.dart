@@ -231,3 +231,4 @@ void setup() async {
   // Servicio
   getIt.registerLazySingleton<LocationService>(() => LocationService());
 }
+

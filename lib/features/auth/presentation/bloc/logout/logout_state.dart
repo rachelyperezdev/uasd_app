@@ -19,3 +19,4 @@ class LogoutFailure extends LogoutState {
   @override
   List<Object?> get props => [error];
 }
+

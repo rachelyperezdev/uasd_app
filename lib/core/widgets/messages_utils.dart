@@ -1,7 +1,7 @@
-// Snackbar personalizable
 import 'package:flutter/material.dart';
 import 'package:uasd_app/app/app_constants.dart';
 
+// Snackbar personalizable
 SnackBar buildCustomizedSnackBar(
     {required String message, IconData icon = Icons.info, Color? bgColor}) {
   return SnackBar(

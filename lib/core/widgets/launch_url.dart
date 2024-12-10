@@ -1,8 +1,7 @@
 import 'package:url_launcher/url_launcher.dart';
-
-// Función encargada de redirigir a la url especificada
 import 'package:flutter/material.dart';
 
+// Función encargada de redirigir a la url especificada
 void openUrl(BuildContext context, String url) async {
   if (!url.startsWith('http://') && !url.startsWith('https://')) {
     url = 'https://$url';
